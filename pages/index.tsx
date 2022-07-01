@@ -3,6 +3,7 @@ import { Character, GetCharacterResults } from "../types";
 import Style from "../styles/Home.module.css";
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 import imageLoader from "../imageLoader";
 const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
   return (
@@ -22,7 +23,9 @@ const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
               src={character.image}
               className={Style.character__image}
             />
-            <span>{character.name}</span>
+            <Link href={`/characters/${character.id}`}>
+              <span>{character.name}</span>
+            </Link>
           </div>
         ))}
       </div>
